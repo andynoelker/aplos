@@ -97,7 +97,7 @@ button,
 input,
 select,
 textarea {
-	color: #000;	
+	color: #000;
 	font-family: Verdana, sans-serif;
 	font-size: 14px;
 	font-size: 1.4rem;
@@ -423,7 +423,7 @@ a:active {
 }
 .site-description {
 	font-size: 13px;
-	font-size: 1.3rem;	
+	font-size: 1.3rem;
 	text-transform: uppercase;
 }
 .site-title a {
@@ -1060,3 +1060,4 @@ a:hover, a:focus, a:active,
 .site-info, .site-info a:hover, .site-info a:focus, .site-info a:active {
 	color: #EE6D59;
 }
+
