@@ -135,6 +135,28 @@ function aplos_content_nav($nav_id)
 }
 endif; // aplos_content_nav
 
+if (! function_exists('aplos_post_thumbnail')):
+/**
+ * Template for post thumbnails/featured images with captions.
+ *
+ * @param string $size    The size of the image.
+ */
+function aplos_post_thumbnail($size = 'large')
+{
+    if (has_post_thumbnail()) :
+        ?><div class="wp-post-image-container"><?php
+            the_post_thumbnail($size);
+            $caption = get_post(get_post_thumbnail_id())->post_excerpt;
+                if ($caption !== '') :
+                    ?><div class="wp-post-image-caption"><?php
+                        echo $caption;
+                    ?></div><?php
+                endif;
+        ?></div>
+    <?php endif;
+}
+endif; // aplos_post_thumbnail
+
 if (! function_exists('aplos_comment')) :
 /**
  * Template for comments and pingbacks.

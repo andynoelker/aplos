@@ -34,6 +34,11 @@ function aplos_setup()
     add_theme_support('automatic-feed-links');
 
     /**
+     * Enable support for post thumbnails and featured images.
+     */
+    add_theme_support( 'post-thumbnails' );
+
+    /**
      * Enable support for the Aside Post Format
      */
     add_theme_support('post-formats', array( 'aside' ));

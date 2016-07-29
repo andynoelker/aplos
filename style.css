@@ -554,13 +554,40 @@ a:active {
 }
 
 article {
-	background: #FFF;
-    	border: 1px solid rgba(0, 0, 0, 0.1);
-	margin: 0 0 1.2em;
-	padding: 1.5em;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+    background: #FFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0 0 1.2em;
+    padding: 1.5em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.wp-post-image {
+    width: 100%;
+    height: auto;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.wp-post-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.wp-post-image-caption {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFF;
+    padding: 15px;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .entry-title,
