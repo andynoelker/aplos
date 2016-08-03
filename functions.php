@@ -412,7 +412,7 @@ function aplos_customize_css()
             <style type="text/css">
                 .entry-title,
                 .page-title {
-                  font-family: 'Conv_BEBAS', Verdana, sans-serif;
+                  font-family: 'BebasNeue', Verdana, sans-serif;
                   word-spacing: 2px;
                 }
             </style> <?php
@@ -431,7 +431,7 @@ function aplos_customize_css()
               <style type="text/css">
                 .entry-title,
                 .page-title {
-                  font-family: 'Conv_BEBAS', Verdana, sans-serif;
+                  font-family: 'BebasNeue', Verdana, sans-serif;
                   word-spacing: 2px;
                 }
               </style> <?php
