@@ -110,15 +110,10 @@ textarea {
 	line-height: 1.5rem;
 }
 
-body {
-	background: #232B2B;
-}
-
 /* Headings */
 h1,h2,h3,h4,h5,h6 {
 	clear: both;
 	margin: 0.6em 0;
-	font-family: 'BebasNeue', Verdana, sans-serif;
 	word-spacing: 2px;
 }
 h1 {
@@ -338,15 +333,9 @@ textarea {
 /* Links */
 a,
 a:visited {
-	//color: #8F1E0C;
 	transition: all .3s ease-in-out;
 	-webkit-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out;
-}
-a:hover,
-a:focus,
-a:active {
-	//color: #EE6D59;
 }
 
 /* Alignment */
@@ -389,7 +378,6 @@ a:active {
 }
 .site-title,
 .site-description {
-    font-family: 'BebasNeue', Verdana, sans-serif;
 	word-spacing: 2px;
 }
 
@@ -418,7 +406,6 @@ a:active {
 ----------------------------------------------- */
 
 .site-header hgroup {
-	background: #232B2B;
 	padding: 1.5em 2em;
 	text-align: center;
 }
@@ -434,7 +421,6 @@ a:active {
 	text-transform: uppercase;
 }
 .site-title a {
-	color: #DC254;
 	text-decoration: none;
 }
 .site-description {
@@ -461,14 +447,13 @@ a:active {
 .main-navigation li {
 	float: left;
 	text-transform: uppercase;
-	font-family: 'BebasNeue', Verdana, sans-serif;
 	margin: 0.5em 0.5em 0.5em 0;
 	position: relative;
-	background: #dc3d24;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	border-radius: 5px;*
+	border-radius: 5px;
 	border: 1px solid #5e0d00;
+    text-transform: uppercase;
 	-moz-box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),
 		inset 0px 0px 1px rgba(255,255,255,0.5);
@@ -601,7 +586,6 @@ article {
 .page-title {
     font-size: 40px;
     font-size: 4rem;
-    font-family: 'BebasNeue', Verdana, sans-serif;
     word-spacing: 2px;
     text-transform: uppercase;
     margin: 0 0 0.2em;
@@ -613,7 +597,6 @@ article {
 .entry-title a:active,
 .entry-title a:focus {
 	text-decoration: none;
-	color: #232B2B;
 }
 body.search .page-title,
 body.archive .page-title {
@@ -929,14 +912,13 @@ p.nocomments {
 	color: #fff;
 	font-size: 18px;
 	font-size: 1.8rem;
-	font-family: 'BebasNeue', Verdana, sans-serif;
 	word-spacing: 2px;
 	padding: 2px 15px;
-	background: #dc3d24;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	border: 1px solid #5e0d00;
+    text-transform: uppercase;
 	-moz-box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),
 		inset 0px 0px 1px rgba(255,255,255,0.5);
@@ -980,25 +962,6 @@ p.nocomments {
 
 /* =Responsiveness
 ----------------------------------------------- */
-@media only screen and (max-width: 820px) {
-	#primary {
-		width: 55%;
-	}
-
-	#secondary,
-	#tertiary {
-		width: 35%;
-	}
-
-	#main {
-		padding: 0.8em;
-	}
-
-	.site-navigation {
-        padding: 0 0.8em;
-    }
-}
-
 @media only screen and (max-width: 580px) {
 
 	#main {
@@ -1042,59 +1005,5 @@ p.nocomments {
 #ie8 .widget img,
 #ie8 .wp-caption img {
 	width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
-}
-
-
-/* =Customizable default values
------------------------------------------------ */
-#primary {
-    float: left;
-    margin: 0;
-    padding: 1em 0 0 0;
-    width: 73%;
-}
-#content {
-    margin: 0 2% 0 0;
-}
-#secondary,
-#tertiary {
-    background: #fff;
-    float: right;
-    margin: 0;
-    padding: 2em 2em 0;
-    position: relative;
-    width: 20%;
-    height: 100%;
-    margin-top: 1em;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-     border-radius: 5px;
-     clear: right;
-}
-#tertiary {
-    padding-top: 0;
-}
-
-.site-title a, .site-title a:hover,
-.site-title a:visited, .site-title a:focus,
-.site-title a:active, .site-info a, .site-info a:visited {
-	color: #DC3D24;
-}
-
-.main-navigation li, .widget-title {
-	background: #DC3D24;
-}
-
-body, .site-header hgroup {
-	background: #232B2B;
-}
-
-a, a:visited {
-	color: #8F1E0C;
-}
-
-a:hover, a:focus, a:active,
-.site-info, .site-info a:hover, .site-info a:focus, .site-info a:active {
-	color: #EE6D59;
 }
 

@@ -111,6 +111,17 @@ function aplos_wp_title($title, $sep)
 }
 add_filter('wp_title', 'aplos_wp_title', 10, 2);
 
+function aplos_get_defaults()
+{
+    return array(
+        'colors' => array(
+            'title' => '#DC3D24',
+            'background' => '#232B2B',
+            'link' => '#8F1E0C',
+            'link_hover' => '#EE6D59',
+        )
+    );
+}
 
 //Add color selectors to Appearance menu
 function aplos_customize_register($wp_customize)
@@ -202,11 +213,11 @@ function aplos_customize_register($wp_customize)
     $wp_customize->add_control('fonts_choices',
          array(
             'type' => 'select',
-            'label' => __('Select Post Title Font', 'aplos'),
+            'label' => __('Select Title Font', 'aplos'),
             'section' => 'aplos_fonts_choice_section',
             'choices' => array(
-                'bebas' => __('Theme Default', 'aplos'),
-                'verdana' => __('Verdana', 'aplos'),
+                'BebasNeue' => __('Theme Default', 'aplos'),
+                'Verdana' => __('Verdana', 'aplos'),
             ),
          )
       );
@@ -247,224 +258,178 @@ function aplos_customize_register($wp_customize)
 
 function aplos_customize_css()
 {
+    // Theme defaults
+    $defaults = aplos_get_defaults();
+
     //Layout choices
-    $layoutchoice = get_theme_mod('layout_choices');
+    $layoutchoice = get_theme_mod('layout_choices', 'twocol');
     switch ($layoutchoice) {
-            case 'twocol': ?>
-				<style type="text/css">
+        case 'twocol':
+        default: ?>
+		    <style type="text/css">
+                #primary {
+                	float: left;
+                	margin: 0;
+                	padding: 1em 0 0 0;
+                	width: 73%;
+                }
+                #content {
+                	margin: 0 2% 0 0;
+                }
+                #secondary,
+                #tertiary {
+                	background: #fff;
+                   	float: right;
+                   	margin: 0;
+                    padding: 2em 2em 0;
+                    position: relative;
+                    width: 20%;
+                	height: 100%;
+                	margin-top: 1em;
+                	-moz-border-radius: 5px;
+                	-webkit-border-radius: 5px;
+                	border-radius: 5px;
+                    clear: right;
+                }
+                #tertiary {
+                	padding-top: 0;
+                }
+                @media only screen and (max-width: 820px) {
                     #primary {
-                    	float: left;
-                    	margin: 0;
-                    	padding: 1em 0 0 0;
-                    	width: 73%;
+                        width: 55%;
                     }
-                    #content {
-                    	margin: 0 2% 0 0;
-                    }
+
                     #secondary,
                     #tertiary {
-                    	background: #fff;
-                       	float: right;
-                       	margin: 0;
-                        padding: 2em 2em 0;
-                        position: relative;
-                        width: 20%;
-                    	height: 100%;
-                    	margin-top: 1em;
-                    	-moz-border-radius: 5px;
-                    	-webkit-border-radius: 5px;
-                    	border-radius: 5px;
-                      clear: right;
-                    }
-                    #tertiary {
-                    	padding-top: 0;
-                    }
-                    @media only screen and (max-width: 820px) {
-                      #primary {
-                        width: 55%;
-                      }
-
-                      #secondary,
-                      #tertiary {
                         width: 35%;
-                      }
+                    }
 
-                      #main {
+                    #main {
                         padding: 0.8em;
-                      }
+                    }
 
-                      .site-navigation {
+                    .site-navigation {
                         padding: 0 0.8em;
-                      }
                     }
-				</style> <?php
-                break;
-            case 'threecol': ?>
-				<style type="text/css">
-                    #primary {
-                    	float: left;
-                    	width: 90%;
-                    }
-                    #content {
-                    	margin: 0 26%;
-                    }
+                }
+			</style> <?php
+            break;
+        case 'threecol': ?>
+		    <style type="text/css">
+                #primary {
+                	float: left;
+                	width: 90%;
+                }
+                #content {
+                	margin: 0 26%;
+                }
 
-                    #secondary {
-                    	float: left;
-                    	overflow: hidden;
-                    	width: 15%;
-                    	background: #fff;
-                    	height: 100%;
-                    	padding: 2em 2em 0;
-                    	position: relative;
-                    	margin: 1em 0 0 -90%;
-                    	-moz-border-radius: 5px;
-                    	-webkit-border-radius: 5px;
-                    	border-radius: 5px;
-                    }
-                    #tertiary {
-                    	float: left;
-                    	overflow: hidden;
-                    	width: 15%;
-                    	background: #fff;
-                    	height: 100%;
-                    	padding: 2em 2em 0;
-                    	position: relative;
-                    	margin: 1em 0 0 -20%;
-                    	-moz-border-radius: 5px;
-                    	-webkit-border-radius: 5px;
-                    	border-radius: 5px;
-                    }
-                    @media only screen and (max-width: 820px) {
-                      #content {
+                #secondary {
+                	float: left;
+                	overflow: hidden;
+                	width: 15%;
+                	background: #fff;
+                	height: 100%;
+                	padding: 2em 2em 0;
+                	position: relative;
+                	margin: 1em 0 0 -90%;
+                	-moz-border-radius: 5px;
+                	-webkit-border-radius: 5px;
+                	border-radius: 5px;
+                }
+                #tertiary {
+                	float: left;
+                	overflow: hidden;
+                	width: 15%;
+                	background: #fff;
+                	height: 100%;
+                	padding: 2em 2em 0;
+                	position: relative;
+                	margin: 1em 0 0 -20%;
+                	-moz-border-radius: 5px;
+                	-webkit-border-radius: 5px;
+                	border-radius: 5px;
+                }
+                @media only screen and (max-width: 820px) {
+                    #content {
                         margin: 0 22% 0 31%;
-                      }
+                    }
 
-                      #main {
+                    #main {
                         padding: 0.8em;
-                      }
+                    }
 
-                      #tertiary {
+                    #tertiary {
                         margin: 1em 0 0 -16%;
-                      }
-
-                      .site-navigation {
-                            padding: 0 0.8em;
-                        }
-                  }
-
-				</style> <?php
-                break;
-                default: ?>
-                <style type="text/css">
-                    #primary {
-                        float: left;
-                        margin: 0;
-                        padding-top: 1em;
-                        width: 73%;
                     }
-                    #content {
-                        margin: 0 2% 0 0;
-                    }
-                    #secondary,
-                    #tertiary {
-                        background: #fff;
-                        float: right;
-                        margin: 0;
-                        padding: 2em 2em 0;
-                        position: relative;
-                        width: 20%;
-                        height: 100%;
-                        margin-top: 1em;
-                        -moz-border-radius: 5px;
-                        -webkit-border-radius: 5px;
-                        border-radius: 5px;
-                        clear: right;
-                    }
-                    #tertiary {
-                        padding-top: 0;
-                    }
-                    @media only screen and (max-width: 820px) {
-                      #primary {
-                        width: 55%;
-                      }
 
-                      #secondary,
-                      #tertiary {
-                        width: 35%;
-                      }
-
-                      #main {
-                        padding: 0.8em;
-                      }
-
-                      .site-navigation {
+                    .site-navigation {
                         padding: 0 0.8em;
-                      }
                     }
-                </style> <?php
-            }
-
-      //Fonts choices
-      $fontschoice = get_theme_mod('fonts_choices');
-    switch ($fontschoice) {
-          case 'bebas': ?>
-            <style type="text/css">
-                .entry-title,
-                .page-title {
-                  font-family: 'BebasNeue', Verdana, sans-serif;
-                  word-spacing: 2px;
                 }
-            </style> <?php
-            break;
-          case 'verdana': ?>
-            <style type="text/css">
-                .entry-title,
-                .page-title {
-                  font-family: Verdana, sans-serif;
-                  word-spacing: normal;
-                  font-weight: bold;
-                }
-            </style> <?php
-            break;
-            default: ?>
-              <style type="text/css">
-                .entry-title,
-                .page-title {
-                  font-family: 'BebasNeue', Verdana, sans-serif;
-                  word-spacing: 2px;
-                }
-              </style> <?php
-      }
+			</style> <?php
+        break;
+    }
 
-
-      //Color choices
+    //Fonts choices
+    $fontsChoice = get_theme_mod('fonts_choices', "BebasNeue");
+    $fontStart = $fontsChoice === 'verdana' ? '' : $fontsChoice.', ';
+    $fontEnding = "Verdana, sans-serif";
+    $font = $fontStart.$fontEnding;
     ?>
-      <style type="text/css">
-           		.site-title a, .site-title a:hover, .site-title a:visited, .site-title a:focus, .site-title a:active { color:<?php echo get_theme_mod('title_color');
-    ?>; }
-			.main-navigation li { background:<?php echo get_theme_mod('title_color');
-    ?>; }
-			.widget-title { background:<?php echo get_theme_mod('title_color');
-    ?>; }
-			.site-info a, .site-info a:visited { color:<?php echo get_theme_mod('title_color');
-    ?>; }
+    <style type="text/css">
+        h1,h2,h3,h4,h5,h6,
+        .site-title,
+        .site-description,
+        .entry-title,
+        .page-title,
+        .widget-title,
+        .main-navigation li {
+            font-family: <?php echo $font; ?>;
+        }
+    </style> <?php
 
-			body { background:<?php echo get_theme_mod('themebg_color');
-    ?>; }
-			.site-header hgroup { background:<?php echo get_theme_mod('themebg_color');
-    ?>; }
-
-			a, a:visited { color:<?php echo get_theme_mod('link_color');
-    ?>; }
-
-			a:hover, a:focus, a:active { color:<?php echo get_theme_mod('link_hover_color');
-    ?>; }
-			.site-info { color:<?php echo get_theme_mod('link_hover_color');
-    ?>; }
-			.site-info a:hover, .site-info a:focus, .site-info a:active { color:<?php echo get_theme_mod('link_hover_color');
-    ?>; }
-      		</style>
+    //Color choices
+    ?>
+    <style type="text/css">
+        .site-title a,
+        .site-title a:hover,
+        .site-title a:visited,
+        .site-title a:focus,
+        .site-title a:active,
+        .site-info a,
+        .site-info a:visited {
+            color: <?php echo get_theme_mod('title_color', $defaults['colors']['title']);?>;
+        }
+        .main-navigation li,
+        .widget-title {
+            background: <?php echo get_theme_mod('title_color', $defaults['colors']['title']);?>;
+        }
+        body,
+        .site-header hgroup {
+            background: <?php echo get_theme_mod('themebg_color', $defaults['colors']['background'])?>;
+        }
+        .entry-title a,
+        .entry-title a:visited,
+        .entry-title a:hover,
+        .entry-title a:active,
+        .entry-title a:focus {
+            color: <?php echo get_theme_mod('themebg_color', $defaults['colors']['background'])?>;
+        }
+        a,
+        a:visited {
+            color: <?php echo get_theme_mod('link_color', $defaults['colors']['link']);?>;
+        }
+        a:hover,
+        a:focus,
+        a:active,
+        .site-info,
+        .site-info a:hover,
+        .site-info a:focus,
+        .site-info a:active {
+            color: <?php echo get_theme_mod('link_hover_color', $defaults['colors']['link_hover']);?>;
+        }
+    </style>
       <?php
 
 }
