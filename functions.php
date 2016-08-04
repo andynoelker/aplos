@@ -137,7 +137,7 @@ function aplos_customize_register($wp_customize)
     $wp_customize->add_section('aplos_fonts_choice_section', array(
             'title'      => __('Fonts', 'aplos'),
             'priority'   => 30,
-        'description' => __('Allows you to change the font of post titles (Verdana is suggested for languagues with characters other than the basic Latin alphabet).', 'aplos'),
+            'description' => __('Change the font of the site title, post titles, and headings.<br><br><b>Theme Default:</b> Suggested. Supports most special characters in the Latin alphabet.<br><br><b>Roboto Condensed:</b> Wide language support. Supports special Latin characters, Greek, Cyrillic, and Vietnamese.<br><br><b>Verdana:</b> Not suggested. Only use this is a fallback font if the other included fonts do not contain the characters required by your language.', 'aplos'),
     ));
 
     //Layout settings
@@ -217,6 +217,7 @@ function aplos_customize_register($wp_customize)
             'section' => 'aplos_fonts_choice_section',
             'choices' => array(
                 'BebasNeue' => __('Theme Default', 'aplos'),
+                '\'Roboto Condensed\'' => __('Roboto Condensed', 'aplos'),
                 'Verdana' => __('Verdana', 'aplos'),
             ),
          )
@@ -453,6 +454,10 @@ function aplos_scripts()
 
     if (is_singular() && wp_attachment_is_image()) {
         wp_enqueue_script('keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202');
+    }
+
+    if (get_theme_mod('fonts_choices') === "'Roboto Condensed'") {
+        wp_enqueue_style('roboto-condensed', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:700&subset=latin,greek,latin-ext,cyrillic,vietnamese');
     }
 }
 add_action('wp_enqueue_scripts', 'aplos_scripts');
