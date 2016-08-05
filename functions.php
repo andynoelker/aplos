@@ -385,7 +385,23 @@ function aplos_customize_css()
         .entry-title,
         .page-title,
         .widget-title,
-        .main-navigation li {
+        .main-navigation li,
+        button,
+        html input[type="button"],
+        input[type="reset"],
+        input[type="submit"],
+        button:hover,
+        html input[type="button"]:hover,
+        input[type="reset"]:hover,
+        input[type="submit"]:hover,
+        button:focus,
+        html input[type="button"]:focus,
+        input[type="reset"]:focus,
+        input[type="submit"]:focus,
+        button:active,
+        html input[type="button"]:active,
+        input[type="reset"]:active,
+        input[type="submit"]:active {
             font-family: <?php echo $font; ?>;
         }
     </style> <?php
@@ -403,7 +419,23 @@ function aplos_customize_css()
             color: <?php echo get_theme_mod('title_color', $defaults['colors']['title']);?>;
         }
         .main-navigation li,
-        .widget-title {
+        .widget-title,
+        button,
+        html input[type="button"],
+        input[type="reset"],
+        input[type="submit"],
+        button:hover,
+        html input[type="button"]:hover,
+        input[type="reset"]:hover,
+        input[type="submit"]:hover,
+        button:focus,
+        html input[type="button"]:focus,
+        input[type="reset"]:focus,
+        input[type="submit"]:focus,
+        button:active,
+        html input[type="button"]:active,
+        input[type="reset"]:active,
+        input[type="submit"]:active {
             background: <?php echo get_theme_mod('title_color', $defaults['colors']['title']);?>;
         }
         body,
