@@ -524,16 +524,11 @@ a:visited {
 
 /* Small menu */
 .menu-toggle {
-	color: #7c948a;
-   	cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
+    display: none;
 }
 .main-small-navigation .menu {
 	display: none;
 }
-
 
 /* =Content
 ----------------------------------------------- */
@@ -992,6 +987,21 @@ p.nocomments {
 	padding: 1em !important;
 	margin-top: 1em !important;
 	}
+
+    /* Collapsible nav */
+    .menu-toggle {
+        display: block;
+        float: left;
+    }
+    .site-navigation li {
+        display: none;
+    }
+
+    .site-navigation.toggled li,
+    .site-navigation.toggled button {
+        float: none;
+        display: block;
+    }
 }
 
 
