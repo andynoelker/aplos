@@ -147,6 +147,12 @@ function aplos_customize_register($wp_customize)
          )
       );
 
+    $wp_customize->add_setting('collapsible_nav',
+         array(
+           'default' => true,
+         )
+      );
+
   //Fonts settings
   $wp_customize->add_setting('fonts_choices',
          array(
@@ -194,6 +200,14 @@ function aplos_customize_register($wp_customize)
                 'twocol' => __('Two Columns', 'aplos'),
                 'threecol' => __('Three Columns', 'aplos'),
             ),
+         )
+      );
+
+    $wp_customize->add_control('collapsible_nav',
+         array(
+            'type' => 'checkbox',
+            'label' => __('Use collapsible menu on small screens', 'aplos'),
+            'section' => 'aplos_layout_choice_section',
          )
       );
 
@@ -464,6 +478,29 @@ function aplos_customize_css()
         }
     </style>
       <?php
+
+    // Collapisble menu on small screens
+    $useCollapsibleNav = get_theme_mod('collapsible_nav', true);
+
+    if ($useCollapsibleNav) : ?>
+    <style type="text/css">
+        @media only screen and (max-width: 580px) {
+            .menu-toggle {
+                display: block;
+                float: left;
+            }
+            .site-navigation li {
+                display: none;
+            }
+
+            .site-navigation.toggled li,
+            .site-navigation.toggled button {
+                float: none;
+                display: block;
+            }
+        }
+    </style>
+<?php endif;
 
 }
 

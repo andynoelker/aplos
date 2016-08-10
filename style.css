@@ -987,21 +987,6 @@ p.nocomments {
 	padding: 1em !important;
 	margin-top: 1em !important;
 	}
-
-    /* Collapsible nav */
-    .menu-toggle {
-        display: block;
-        float: left;
-    }
-    .site-navigation li {
-        display: none;
-    }
-
-    .site-navigation.toggled li,
-    .site-navigation.toggled button {
-        float: none;
-        display: block;
-    }
 }
 
 
