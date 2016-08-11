@@ -23,7 +23,7 @@
     </div><!-- .entry-summary -->
     <?php else : ?>
     <div class="entry-content">
-        <?php the_content(__('Read More <span class="meta-nav">&raquo;</span>', 'aplos')); ?>
+        <?php the_content(sprintf('%1$s <span class="meta-nav">&raquo;</span>', get_theme_mod('read_more_text', __('Read More', 'aplos')))); ?>
         <?php wp_link_pages(array( 'before' => '<div class="page-links">' . __('Pages:', 'aplos'), 'after' => '</div>' )); ?>
     </div><!-- .entry-content -->
     <?php endif; ?>
@@ -36,7 +36,7 @@
                 if ($categories_list) :
             ?>
             <span class="cat-links">
-                <?php printf(__('Filed Under: %1$s', 'aplos'), $categories_list); ?>
+                <?php printf('%1$s %2$s', get_theme_mod('categories_text', __('Filed Under:', 'aplos')), $categories_list); ?>
             </span>
             <?php endif; // End if categories ?>
 
@@ -47,7 +47,7 @@
             ?>
             <span class="sep"> | </span>
             <span class="tag-links">
-                <?php printf(__('Tagged: %1$s', 'aplos'), $tags_list); ?>
+                <?php printf(__('%1$s %2$s', 'aplos'), get_theme_mod('tags_text', __('Tagged:')),  $tags_list); ?>
             </span>
             <?php endif; // End if $tags_list ?>
         <?php endif; // End if 'post' == get_post_type() ?>

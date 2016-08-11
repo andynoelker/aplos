@@ -137,18 +137,25 @@ function aplos_get_defaults()
 //Add color selectors to Appearance menu
 function aplos_customize_register($wp_customize)
 {
-    //Layout Section
+    // Layout Section
     $wp_customize->add_section('aplos_layout_choice_section', array(
             'title'      => __('Layout', 'aplos'),
             'priority'   => 30,
         'description' => __('Allows you to customize page layout.', 'aplos'),
     ));
 
-    //Fonts Section
+    // Fonts Section
     $wp_customize->add_section('aplos_fonts_choice_section', array(
             'title'      => __('Fonts', 'aplos'),
             'priority'   => 30,
             'description' => __('Change the font of the site title, post titles, and headings.<br><br><b>Theme Default:</b> Suggested. Supports most special characters in the Latin alphabet.<br><br><b>Roboto Condensed:</b> Wide language support. Supports special Latin characters, Greek, Cyrillic, and Vietnamese.<br><br><b>Verdana:</b> Not suggested. Only use this is a fallback font if the other included fonts do not contain the characters required by your language.', 'aplos'),
+    ));
+
+    // Site Text Section
+    $wp_customize->add_section('aplos_site_text_section', array(
+            'title'      => __('Site Text', 'aplos'),
+            'priority'   => 30,
+            'description' => __('Customize text within the theme.', 'aplos'),
     ));
 
     //Layout settings
@@ -197,6 +204,35 @@ function aplos_customize_register($wp_customize)
     $wp_customize->add_setting('link_hover_color',
          array(
             'default' => '#EE6D59',
+            'type' => 'theme_mod',
+         )
+      );
+
+    // Site Text settings
+    $wp_customize->add_setting('read_more_text',
+         array(
+            'default' => __('Read More', 'aplos'),
+            'type' => 'theme_mod',
+         )
+      );
+
+    $wp_customize->add_setting('post_date_text',
+         array(
+            'default' => __('Posted on', 'aplos'),
+            'type' => 'theme_mod',
+         )
+      );
+
+    $wp_customize->add_setting('categories_text',
+         array(
+            'default' => __('Filed Under:', 'aplos'),
+            'type' => 'theme_mod',
+         )
+      );
+
+    $wp_customize->add_setting('tags_text',
+         array(
+            'default' => __('Tagged:', 'aplos'),
             'type' => 'theme_mod',
          )
       );
@@ -280,6 +316,39 @@ function aplos_customize_register($wp_customize)
             'priority' => 20,
          )
       ));
+
+    // Site Text Controls
+    $wp_customize->add_control('read_more_text',
+         array(
+            'type' => 'input',
+            'label' => __('Read More link', 'aplos'),
+            'section' => 'aplos_site_text_section',
+         )
+      );
+
+    $wp_customize->add_control('post_date_text',
+         array(
+            'type' => 'input',
+            'label' => __('Post date text', 'aplos'),
+            'section' => 'aplos_site_text_section',
+         )
+      );
+
+    $wp_customize->add_control('categories_text',
+         array(
+            'type' => 'input',
+            'label' => __('Categories text', 'aplos'),
+            'section' => 'aplos_site_text_section',
+         )
+      );
+
+    $wp_customize->add_control('tags_text',
+         array(
+            'type' => 'input',
+            'label' => __('Tags text', 'aplos'),
+            'section' => 'aplos_site_text_section',
+         )
+      );
 }
 
 function aplos_customize_css()

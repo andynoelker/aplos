@@ -14,7 +14,8 @@
  */
 function aplos_posted_on()
 {
-    printf(__('Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'aplos'),
+    printf(__('%1$s <a href="%2$s" title="%3$s" rel="bookmark"><time class="entry-date" datetime="%4$s" pubdate>%5$s</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%6$s" title="%7$s" rel="author">%8$s</a></span></span>', 'aplos'),
+        get_theme_mod('post_date_text', __('Posted on', 'aplos')),
         esc_url(get_permalink()),
         esc_attr(get_the_time()),
         esc_attr(get_the_date('c')),

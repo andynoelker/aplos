@@ -25,24 +25,16 @@
             $category_list = get_the_category_list(__(', ', 'aplos'));
             $tag_list = get_the_tag_list('', ', ');
 
-            if (! aplos_categorized_blog()) {
-                // Blog with 1 category
-                if ('' != $tag_list) {
-                    $meta_text = __('Filed Under: %1$s Tagged: %2$s', 'aplos');
-                } else {
-                    $meta_text = __('Filed Under: %1$s', 'aplos');
-                }
+            if ($tag_list != '') {
+                $meta_text = __('%1$s %3$s <span class="sep"> | </span> %2$s %4$s', 'aplos');
             } else {
-                // Blog with multiple categories gets displayed
-                if ('' != $tag_list) {
-                    $meta_text = __('Filed under: %1$s Tagged: %2$s', 'aplos');
-                } else {
-                    $meta_text = __('Filed under: %1$s', 'aplos');
-                }
-            } // end check for categories on this blog
+                $meta_text = __('%1$s %3$s', 'aplos');
+            }
 
             printf(
                 $meta_text,
+                get_theme_mod('categories_text', __('Filed Under:', 'aplos')),
+                get_theme_mod('tags_text', __('Tagged:', 'aplos')),
                 $category_list,
                 $tag_list,
                 get_permalink(),
