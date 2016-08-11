@@ -44,6 +44,17 @@ function aplos_setup()
     add_theme_support('post-formats', array( 'aside' ));
 
     /**
+     * Enable support for a custom header
+     */
+    add_theme_support('custom-header', array(
+        'flex-width' => true,
+        'flex-height' => true,
+        'width' => 1050,
+        'height' => 200,
+        'default-image' => '',
+    ));
+
+    /**
      * This theme uses wp_nav_menu() in one location.
      */
     register_nav_menus(array(

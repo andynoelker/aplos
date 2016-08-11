@@ -426,6 +426,16 @@ a:visited {
 .site-description {
 	color: #FFF;
 }
+.site-header-image {
+    margin: 15px auto 0;
+    max-width: 1050px;
+}
+
+.site-header-image img {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 
 /* =Menu
 ----------------------------------------------- */
