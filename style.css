@@ -270,10 +270,8 @@ input[type="submit"]:active {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    border: 1px solid #5e0d00;
     outline: none;
     cursor: pointer;
-    color: #FFF;
     font-size: 18px;
     font-size: 1.8rem;
     padding: 10px 20px;
@@ -462,7 +460,6 @@ a:visited {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	border: 1px solid #5e0d00;
     text-transform: uppercase;
 	-moz-box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),
@@ -503,29 +500,6 @@ a:visited {
 .main-navigation ul ul a {
 	padding: 0 1.5em;
 	width: 120px;
-}
-.main-navigation ul ul li {
-}
-
-.main-navigation a,
-.main-navigation a:hover,
-.main-navigation a:visited,
-.main-navigation a:focus,
-.main-navigation a:active {
-	color: #fff;
-}
-
-.main-navigation li:hover > a,
-.main-navigation li.current_page_item a,
-.main-navigation li.current-menu-item a,
-.main-navigation ul ul a:hover {
-	color: #fff;
-}
-
-.main-navigation li.current_page_item,
-.main-navigation li.current-menu-item {
-}
-.main-navigation ul ul :hover > a {
 }
 
 .main-navigation ul li:hover > ul {
@@ -914,7 +888,6 @@ p.nocomments {
 	margin: 0 0 1.5em;
 }
 .widget-title {
-	color: #fff;
 	font-size: 18px;
 	font-size: 1.8rem;
 	word-spacing: 2px;
@@ -922,7 +895,6 @@ p.nocomments {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	border: 1px solid #5e0d00;
     text-transform: uppercase;
 	-moz-box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),

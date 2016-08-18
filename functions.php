@@ -5,7 +5,7 @@
  * @package Aplos
  * @since Aplos 1.1.0
  */
-
+define( 'NO_HEADER_TEXT', true ); // Do not use default header text color select.
 
 if (! function_exists('aplos_setup')):
 
@@ -128,8 +128,13 @@ function aplos_get_defaults()
         'colors' => array(
             'title' => '#DC3D24',
             'background' => '#232B2B',
+            'content_background' => '#FFF',
+            'site_description' => '#FFF',
+            'text_color' => '#000',
             'link' => '#8F1E0C',
             'link_hover' => '#EE6D59',
+            'button_border' => '#5E0D00',
+            'button_text' => '#FFF',
         )
     );
 }
@@ -194,6 +199,27 @@ function aplos_customize_register($wp_customize)
          )
       );
 
+    $wp_customize->add_setting('content_bg_color',
+         array(
+            'default' => '#FFF',
+            'type' => 'theme_mod',
+         )
+      );
+
+    $wp_customize->add_setting('site_description',
+         array(
+            'default' => '#FFF',
+            'type' => 'theme_mod',
+         )
+      );
+
+    $wp_customize->add_setting('text_color',
+         array(
+            'default' => '#000',
+            'type' => 'theme_mod',
+         )
+      );
+
     $wp_customize->add_setting('link_color',
          array(
             'default' => '#8F1E0C',
@@ -204,6 +230,20 @@ function aplos_customize_register($wp_customize)
     $wp_customize->add_setting('link_hover_color',
          array(
             'default' => '#EE6D59',
+            'type' => 'theme_mod',
+         )
+      );
+
+    $wp_customize->add_setting('button_border_color',
+         array(
+            'default' => '#5E0D00',
+            'type' => 'theme_mod',
+         )
+      );
+
+    $wp_customize->add_setting('button_text_color',
+         array(
+            'default' => '#FFF',
             'type' => 'theme_mod',
          )
       );
@@ -258,18 +298,6 @@ function aplos_customize_register($wp_customize)
          )
       );
 
-    //Color Controls
-    $wp_customize->add_control(new WP_Customize_Color_Control(
-         $wp_customize,
-         'aplos_title_color', //Set a unique ID for the control
-         array(
-            'label' => __('Title Color', 'aplos'), //Admin-visible name of the control
-            'section' => 'colors', //ID of section
-            'settings' => 'title_color', //Which setting to load and manipulate (serialized is okay)
-            'priority' => 10, //Determines the order this control appears in for the specified section
-         )
-      ));
-
     //Fonts Controls
     $wp_customize->add_control('fonts_choices',
          array(
@@ -284,6 +312,7 @@ function aplos_customize_register($wp_customize)
          )
       );
 
+    //Color Controls
     $wp_customize->add_control(new WP_Customize_Color_Control(
          $wp_customize,
          'aplos_themebg_color',
@@ -292,6 +321,50 @@ function aplos_customize_register($wp_customize)
             'section' => 'colors',
             'settings' => 'themebg_color',
             'priority' => 5,
+         )
+      ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+         $wp_customize,
+         'aplos_title_color', //Set a unique ID for the control
+         array(
+            'label' => __('Title Color', 'aplos'), //Admin-visible name of the control
+            'section' => 'colors', //ID of section
+            'settings' => 'title_color', //Which setting to load and manipulate (serialized is okay)
+            'priority' => 6, //Determines the order this control appears in for the specified section
+         )
+      ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+         $wp_customize,
+         'aplos_site_description',
+         array(
+            'label' => __('Site Description Color', 'aplos'),
+            'section' => 'colors',
+            'settings' => 'site_description',
+            'priority' => 7,
+         )
+      ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+         $wp_customize,
+         'aplos_content_bg_color',
+         array(
+            'label' => __('Content Background Color', 'aplos'),
+            'section' => 'colors',
+            'settings' => 'content_bg_color',
+            'priority' => 10,
+         )
+      ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+         $wp_customize,
+         'aplos_text_color',
+         array(
+            'label' => __('Text Color', 'aplos'),
+            'section' => 'colors',
+            'settings' => 'text_color',
+            'priority' => 11,
          )
       ));
 
@@ -314,6 +387,28 @@ function aplos_customize_register($wp_customize)
             'section' => 'colors',
             'settings' => 'link_hover_color',
             'priority' => 20,
+         )
+      ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+         $wp_customize,
+         'aplos_button_border_color',
+         array(
+            'label' => __('Button Border Color', 'aplos'),
+            'section' => 'colors',
+            'settings' => 'button_border_color',
+            'priority' => 25,
+         )
+      ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+         $wp_customize,
+         'aplos_button_text_color',
+         array(
+            'label' => __('Button Text Color', 'aplos'),
+            'section' => 'colors',
+            'settings' => 'button_text_color',
+            'priority' => 30,
          )
       ));
 
@@ -531,17 +626,41 @@ function aplos_customize_css()
         input[type="reset"]:active,
         input[type="submit"]:active {
             background: <?php echo get_theme_mod('title_color', $defaults['colors']['title']);?>;
+            color: <?php echo get_theme_mod('button_text_color', $defaults['colors']['button_text']);?>;
+            border: <?php printf('1px solid %1$s', get_theme_mod('button_border_color', $defaults['colors']['button_border']));?>;
+        }
+        .site-description {
+            color: <?php echo get_theme_mod('site_description', $defaults['colors']['site_description']);?>;
+        }
+        .main-navigation a,
+        .main-navigation a:hover,
+        .main-navigation a:visited,
+        .main-navigation a:focus,
+        .main-navigation a:active {
+            color: <?php echo get_theme_mod('button_text_color', $defaults['colors']['button_text']);?>;
         }
         body,
         .site-header hgroup {
             background: <?php echo get_theme_mod('themebg_color', $defaults['colors']['background'])?>;
         }
+        article,
+        #secondary,
+        #tertiary,
+        #comments,
+        .page-header {
+            background: <?php echo get_theme_mod('content_bg_color', $defaults['colors']['content_background'])?>;
+        }
         .entry-title a,
         .entry-title a:visited,
         .entry-title a:hover,
         .entry-title a:active,
-        .entry-title a:focus {
+        .entry-title a:focus,
+         h1,h2,h3,h4,h5,h6 {
             color: <?php echo get_theme_mod('themebg_color', $defaults['colors']['background'])?>;
+        }
+        body,
+        p {
+            color: <?php echo get_theme_mod('text_color', $defaults['colors']['text_color'])?>;
         }
         a,
         a:visited {
