@@ -1,5 +1,39 @@
 # Release Notes
 
+## v1.2.0
+
+### Added
+* Added post thumbnail support
+* Added Roboto Condensed as a font option, which contains Latin, Greek, Cyrillic, and Vietnamese characters
+* Added a collapsible hamburger menu for smaller screen sizes
+* Added custom Header Image support
+* Added Site Text customization options for:
+  * 'Read More' link
+  * Post date text
+  * Categories text
+  * Tags text
+* Added color customization options for:
+  * Content background color
+  * Site description color
+  * Text color
+  * Button text color
+  * Button border color
+* Added Right-to-Left language support
+
+### Changed
+* Changed main font to 'BebasNeue' which has wider character support
+* Changed button styles to match navigation elements
+* Changed mobile responsive breakpoint to 768px to mirror Bootstrap 3
+* Changed way the theme internally manages default customizations
+* Changed way the theme internally manages column layout styles
+* Changed code to use PSR-2 formatting
+
+### Fixed
+* Stopped showing comments on pages where the comments were disabled
+* Fixed some minor styling issues with comments
+* Stopped rendering second widget column when there were no active widgets in it
+* Fixed spacing issue with nested menu items
+
 ## v1.1.2
 
 ### Added
