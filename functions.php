@@ -3,7 +3,7 @@
  * Aplos functions and definitions
  *
  * @package Aplos
- * @since Aplos 1.1.0
+ * @since Aplos 1.2.0
  */
 define( 'NO_HEADER_TEXT', true ); // Do not use default header text color select.
 
@@ -71,7 +71,7 @@ add_action('after_setup_theme', 'aplos_setup');
 /**
  * Register widgetized area and update sidebar with default widgets
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_widgets_init()
 {
@@ -95,7 +95,11 @@ function aplos_widgets_init()
 }
 add_action('widgets_init', 'aplos_widgets_init');
 
-// Filter the wp_title tag
+/**
+ * Filter the wp_title tag
+ *
+ * @since Aplos 1.2.0
+ */
 function aplos_wp_title($title, $sep)
 {
     if (is_feed()) {
@@ -122,6 +126,11 @@ function aplos_wp_title($title, $sep)
 }
 add_filter('wp_title', 'aplos_wp_title', 10, 2);
 
+/**
+ * Get default customization options
+ *
+ * @since Aplos 1.2.0
+ */
 function aplos_get_defaults()
 {
     return array(
@@ -139,7 +148,11 @@ function aplos_get_defaults()
     );
 }
 
-//Add color selectors to Appearance menu
+/**
+ * Add customization settings to Appearance menu
+ *
+ * @since Aplos 1.2.0
+ */
 function aplos_customize_register($wp_customize)
 {
     // Layout Section
@@ -446,6 +459,11 @@ function aplos_customize_register($wp_customize)
       );
 }
 
+/**
+ * Add styles to the page based on customization options
+ *
+ * @since Aplos 1.2.0
+ */
 function aplos_customize_css()
 {
     // Theme defaults
@@ -595,9 +613,10 @@ function aplos_customize_css()
 add_action('customize_register', 'aplos_customize_register');
 add_action('wp_head', 'aplos_customize_css');
 
-
 /**
  * Enqueue scripts and styles
+ *
+ * @since Aplos 1.2.0
  */
 function aplos_scripts()
 {

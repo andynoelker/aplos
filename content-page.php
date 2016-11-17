@@ -3,7 +3,7 @@
  * Template used for displaying page content in page.php
  *
  * @package Aplos
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 ?>
 

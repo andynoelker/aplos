@@ -5,7 +5,7 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package Aplos
- * @since Aplos 1.1.0
+ * @since Aplos 1.2.0
  */
 ?>
 

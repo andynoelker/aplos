@@ -3,13 +3,13 @@
  * Custom functions that act independently of the theme templates
  *
  * @package Aplos
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 
  /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_page_menu_args($args)
 {
@@ -21,7 +21,7 @@ add_filter('wp_page_menu_args', 'aplos_page_menu_args');
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_body_classes($classes)
 {
@@ -39,7 +39,7 @@ add_filter('body_class', 'aplos_body_classes');
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_enhanced_image_navigation($url, $id)
 {

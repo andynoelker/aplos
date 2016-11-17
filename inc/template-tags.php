@@ -3,14 +3,14 @@
  * Template tags for the theme.
  *
  * @package Aplos
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 
  if (! function_exists('aplos_posted_on')) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_posted_on()
 {
@@ -30,7 +30,7 @@ endif;
 /**
  * Returns true if a blog has more than 1 category
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_categorized_blog()
 {
@@ -58,7 +58,7 @@ function aplos_categorized_blog()
 /**
  * Flush out the transients used in aplos_categorized_blog
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_category_transient_flusher()
 {
@@ -72,7 +72,7 @@ if (! function_exists('aplos_content_nav')):
 /**
  * Display navigation to next/previous pages when applicable
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_content_nav($nav_id)
 {
@@ -164,7 +164,7 @@ if (! function_exists('aplos_comment')) :
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
- * @since Aplos 1.0.0
+ * @since Aplos 1.2.0
  */
 function aplos_comment($comment, $args, $depth)
 {
