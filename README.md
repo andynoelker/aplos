@@ -19,7 +19,7 @@ This license, with FAQ, is availabe at http://scripts.sil.org/OFL
 ### Change color scheme:
 1. Enter the Customize screen from the Appearance menu
 2. Click on the 'Colors' section from the available menu
-3. Use the color pickers to change the site's background color, title color, link color, or link hover colors
+3. Use the color pickers to change nearly every color option on the site
 4. Save changes
 
 ### Change layout:
@@ -29,8 +29,20 @@ This license, with FAQ, is availabe at http://scripts.sil.org/OFL
 4. Save changes
 **Note:** When using a three column layout, the Primary Widget Area will be the left column while the Secondary Widget Area will fill the right column
 
-### Change post title fonts:
+### Add Header Image:
+1. Enter the Customize screen from the Appearance menu
+2. Click on the 'Header Image' section from the available menu
+3. Click the "Add new image" button to upload a Header image. Cropping the image is optional.
+4. Save changes
+
+### Change fonts:
 1. Enter the Customize screen from the Appearance menu
 2. Click on the 'Fonts' section from the available menu
-3. Select either the theme default font or Verdana from the drop-down menu (Verdana is recommended if using characters not in the Latin alphabet)
+3. Select either the theme default font, Roboto Condensed font (more character support), or Verdana font (most character support).
+4. Save changes
+
+### Change site text:
+1. Enter the Customize screen from the Appearance menu
+2. Click on the 'Site Text' section from the available menu
+3. Enter text into the relevant section to change that snippet of text on the site
 4. Save changes
