@@ -451,116 +451,6 @@ function aplos_customize_css()
     // Theme defaults
     $defaults = aplos_get_defaults();
 
-    //Layout choices
-    $layoutchoice = get_theme_mod('layout_choices', 'twocol');
-    switch ($layoutchoice) {
-        case 'twocol':
-        default: ?>
-		    <style type="text/css">
-                #primary {
-                	float: left;
-                	margin: 0;
-                	padding: 1em 0 0 0;
-                	width: 73%;
-                }
-                #content {
-                	margin: 0 2% 0 0;
-                }
-                #secondary,
-                #tertiary {
-                	background: #fff;
-                   	float: right;
-                   	margin: 0;
-                    padding: 2em 2em 0;
-                    position: relative;
-                    width: 20%;
-                	height: 100%;
-                	margin-top: 1em;
-                	-moz-border-radius: 5px;
-                	-webkit-border-radius: 5px;
-                	border-radius: 5px;
-                    clear: right;
-                }
-                #tertiary {
-                	padding-top: 0;
-                }
-                @media only screen and (max-width: 820px) {
-                    #primary {
-                        width: 55%;
-                    }
-
-                    #secondary,
-                    #tertiary {
-                        width: 35%;
-                    }
-
-                    #main {
-                        padding: 0.8em;
-                    }
-
-                    .site-navigation {
-                        padding: 0 0.8em;
-                    }
-                }
-			</style> <?php
-            break;
-        case 'threecol': ?>
-		    <style type="text/css">
-                #primary {
-                	float: left;
-                	width: 90%;
-                }
-                #content {
-                	margin: 0 26%;
-                }
-
-                #secondary {
-                	float: left;
-                	overflow: hidden;
-                	width: 15%;
-                	background: #fff;
-                	height: 100%;
-                	padding: 2em 2em 0;
-                	position: relative;
-                	margin: 1em 0 0 -90%;
-                	-moz-border-radius: 5px;
-                	-webkit-border-radius: 5px;
-                	border-radius: 5px;
-                }
-                #tertiary {
-                	float: left;
-                	overflow: hidden;
-                	width: 15%;
-                	background: #fff;
-                	height: 100%;
-                	padding: 2em 2em 0;
-                	position: relative;
-                	margin: 1em 0 0 -20%;
-                	-moz-border-radius: 5px;
-                	-webkit-border-radius: 5px;
-                	border-radius: 5px;
-                }
-                @media only screen and (max-width: 820px) {
-                    #content {
-                        margin: 0 22% 0 31%;
-                    }
-
-                    #main {
-                        padding: 0.8em;
-                    }
-
-                    #tertiary {
-                        margin: 1em 0 0 -16%;
-                    }
-
-                    .site-navigation {
-                        padding: 0 0.8em;
-                    }
-                }
-			</style> <?php
-        break;
-    }
-
     //Fonts choices
     $fontsChoice = get_theme_mod('fonts_choices', "BebasNeue");
     $fontStart = $fontsChoice === 'verdana' ? '' : $fontsChoice.', ';
@@ -686,7 +576,6 @@ function aplos_customize_css()
         @media only screen and (max-width: 580px) {
             .menu-toggle {
                 display: block;
-                float: left;
             }
             .site-navigation li {
                 display: none;

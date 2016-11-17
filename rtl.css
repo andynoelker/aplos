@@ -50,6 +50,42 @@ textarea {
 	margin-right: 1.5em;
 }
 
+/* =Column Layout
+----------------------------------------------- */
+/* Two Columns */
+.twocol #primary {
+    float: right;
+}
+.twocol #content {
+    margin: 0 0 0 2%;
+}
+.twocol #secondary,
+.twocol #tertiary {
+    float: left;
+    clear: left;
+}
+
+/* Three Columns */
+.threecol #primary {
+    float: right;
+}
+.threecol #secondary {
+    float: right;
+    margin: 0.5em 90% 0 0;
+}
+.threecol #tertiary {
+    float: right;
+    margin: 0.5em 20% 0 0;
+}
+@media only screen and (max-width: 992px) {
+    .threecol #content {
+        margin: 0 31% 0 22%;
+    }
+    .threecol #tertiary {
+        margin: 0.5em 16% 0 0;
+    }
+}
+
 /* =Menu
 ----------------------------------------------- */
 

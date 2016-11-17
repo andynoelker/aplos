@@ -400,6 +400,103 @@ a:visited {
 	clear: both;
 	width: 100%;
 }
+
+/* =Column Layout
+----------------------------------------------- */
+/* Two Columns */
+.twocol #primary {
+    float: left;
+    margin: 0;
+    padding: 1em 0 0 0;
+    width: 73%;
+}
+.twocol #content {
+    margin: 0 2% 0 0;
+}
+.twocol #secondary,
+.twocol #tertiary {
+    background: #fff;
+    float: right;
+    margin: 0;
+    padding: 2em 2em 0;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    margin-top: 1em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    clear: right;
+}
+.twocol #tertiary {
+    padding-top: 0;
+}
+@media only screen and (max-width: 992px) {
+    .twocol #primary {
+        width: 55%;
+    }
+    .twocol #secondary,
+    .twocol #tertiary {
+        width: 35%;
+    }
+    .twocol #main {
+        padding: 0.8em;
+    }
+    .twocol .site-navigation {
+        padding: 0 0.8em;
+    }
+}
+
+/* Three Columns */
+.threecol #primary {
+    float: left;
+    width: 90%;
+    margin-top: 0.5em;
+}
+.threecol #content {
+    margin: 0 26%;
+}
+.threecol #secondary {
+    float: left;
+    overflow: hidden;
+    width: 15%;
+    background: #fff;
+    height: 100%;
+    padding: 2em 2em 0;
+    position: relative;
+    margin: 0.5em 0 0 -90%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.threecol #tertiary {
+    float: left;
+    overflow: hidden;
+    width: 15%;
+    background: #fff;
+    height: 100%;
+    padding: 2em 2em 0;
+    position: relative;
+    margin: 0.5em 0 0 -20%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+@media only screen and (max-width: 992px) {
+    .threecol #content {
+        margin: 0 22% 0 31%;
+    }
+    .threecol #main {
+        padding: 0.8em;
+    }
+    .threecol #tertiary {
+        margin: 0.5em 0 0 -16%;
+    }
+    .threecol .site-navigation {
+        padding: 0 0.8em;
+    }
+}
+
 /* =Site Header
 ----------------------------------------------- */
 

@@ -30,6 +30,8 @@ function aplos_body_classes($classes)
         $classes[] = 'group-blog';
     }
 
+    $classes[] = get_theme_mod('layout_choices', 'twocol');
+
     return $classes;
 }
 add_filter('body_class', 'aplos_body_classes');
