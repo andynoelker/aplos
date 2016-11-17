@@ -552,7 +552,7 @@ a:visited {
 .main-navigation li {
 	float: left;
 	text-transform: uppercase;
-	margin: 0.5rem 0.5rem 0.5rem 0;
+	margin: 0 0.5rem;
 	position: relative;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -586,8 +586,8 @@ a:visited {
 	display: none;
 	float: left;
 	position: absolute;
-		top: 2em;
-		left: 1em;
+    top: 2.6em;
+    left: 1em;
 	z-index: 99999;
 }
 .main-navigation ul ul ul {
@@ -601,6 +601,10 @@ a:visited {
 
 .main-navigation ul li:hover > ul {
 	display: block;
+}
+
+.main-navigation .sub-menu li {
+    margin: 0;
 }
 
 /* Small menu */

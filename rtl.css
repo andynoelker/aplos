@@ -94,14 +94,14 @@ textarea {
 }
 .main-navigation li {
 	float: right;
-	margin: 0.5rem 0 0.5rem 0.5rem;
 }
 .main-navigation ul ul {
 	float: right;
     right: 1em;
 }
 .main-navigation ul ul ul {
-	right: 100%;
+    right: 100%;
+    left: 0%;
 }
 
 /* =Content
