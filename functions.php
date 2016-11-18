@@ -119,7 +119,7 @@ function aplos_wp_title($title, $sep)
 
     // Add page number
     if (($paged >= 2 || $page >= 2) && ! is_404()) {
-        $title .= " $sep " . sprintf(__('Page %s', '_s'), max($paged, $page));
+        $title .= " $sep " . sprintf(__('Page %s', 'aplos'), max($paged, $page));
     }
 
     return $title;

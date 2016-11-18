@@ -47,7 +47,7 @@
             ?>
             <span class="sep"> | </span>
             <span class="tag-links">
-                <?php printf(__('%1$s %2$s', 'aplos'), get_theme_mod('tags_text', __('Tagged:')),  $tags_list); ?>
+                <?php printf(__('%1$s %2$s', 'aplos'), get_theme_mod('tags_text', __('Tagged:', 'aplos')),  $tags_list); ?>
             </span>
             <?php endif; // End if $tags_list ?>
         <?php endif; // End if 'post' == get_post_type() ?>
