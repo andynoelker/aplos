@@ -44,6 +44,11 @@ function aplos_setup()
     add_theme_support('post-formats', array( 'aside' ));
 
     /**
+     * Enable support for title tags
+     */
+    add_theme_support( 'title-tag' );
+
+    /**
      * Enable support for a custom header
      */
     add_theme_support('custom-header', array(
