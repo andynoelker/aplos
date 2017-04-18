@@ -23,6 +23,11 @@ function aplos_setup()
     require(get_template_directory() . '/inc/tweaks.php');
 
     /**
+     * Custom sanitization functions.
+     */
+    require(get_template_directory() . '/inc/sanitization.php');
+
+    /**
      * Make theme available for translation
      * Translations should be filed in the /languages/ directory
      */
@@ -162,44 +167,47 @@ function aplos_customize_register($wp_customize)
 {
     // Layout Section
     $wp_customize->add_section('aplos_layout_choice_section', array(
-            'title'      => __('Layout', 'aplos'),
-            'priority'   => 30,
+        'title'      => __('Layout', 'aplos'),
+        'priority'   => 30,
         'description' => __('Allows you to customize page layout.', 'aplos'),
     ));
 
     // Fonts Section
     $wp_customize->add_section('aplos_fonts_choice_section', array(
-            'title'      => __('Fonts', 'aplos'),
-            'priority'   => 30,
-            'description' => __('Change the font of the site title, post titles, and headings.<br><br><b>Theme Default:</b> Suggested. Supports most special characters in the Latin alphabet.<br><br><b>Roboto Condensed:</b> Wide language support. Supports special Latin characters, Greek, Cyrillic, and Vietnamese.<br><br><b>Verdana:</b> Not suggested. Only use this is a fallback font if the other included fonts do not contain the characters required by your language.', 'aplos'),
+        'title'      => __('Fonts', 'aplos'),
+        'priority'   => 30,
+        'description' => __('Change the font of the site title, post titles, and headings.<br><br><b>Theme Default:</b> Suggested. Supports most special characters in the Latin alphabet.<br><br><b>Roboto Condensed:</b> Wide language support. Supports special Latin characters, Greek, Cyrillic, and Vietnamese.<br><br><b>Verdana:</b> Not suggested. Only use this is a fallback font if the other included fonts do not contain the characters required by your language.', 'aplos'),
     ));
 
     // Site Text Section
     $wp_customize->add_section('aplos_site_text_section', array(
-            'title'      => __('Site Text', 'aplos'),
-            'priority'   => 30,
-            'description' => __('Customize text within the theme.', 'aplos'),
+        'title'      => __('Site Text', 'aplos'),
+        'priority'   => 30,
+        'description' => __('Customize text within the theme.', 'aplos'),
     ));
 
     //Layout settings
     $wp_customize->add_setting('layout_choices',
-         array(
-           'default' => 'twocol',
-         )
-      );
+        array(
+            'default' => 'twocol',
+            'sanitize_callback' => 'aplos_sanitize_columns',
+        )
+    );
 
     $wp_customize->add_setting('collapsible_nav',
          array(
-           'default' => true,
+            'default' => true,
+            'sanitize_callback' => 'aplos_sanitize_boolean',
          )
       );
 
   //Fonts settings
   $wp_customize->add_setting('fonts_choices',
          array(
-           'default' => 'bebas',
-           'type' => 'theme_mod',
-         )
+            'default' => 'bebas',
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'aplos_sanitize_font',
+        )
       );
 
     //Color settings
@@ -207,6 +215,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#DC3D24',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -214,6 +223,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#232B2B',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -221,6 +231,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#FFF',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -228,6 +239,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#FFF',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -235,6 +247,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#000',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -242,6 +255,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#8F1E0C',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -249,6 +263,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#EE6D59',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -256,6 +271,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#5E0D00',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -263,6 +279,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => '#FFF',
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_hex_color',
          )
       );
 
@@ -271,6 +288,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => __('Read More', 'aplos'),
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field',
          )
       );
 
@@ -278,6 +296,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => __('Posted on', 'aplos'),
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field',
          )
       );
 
@@ -285,6 +304,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => __('Filed Under:', 'aplos'),
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field',
          )
       );
 
@@ -292,6 +312,7 @@ function aplos_customize_register($wp_customize)
          array(
             'default' => __('Tagged:', 'aplos'),
             'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field',
          )
       );
 
