@@ -36,8 +36,8 @@
             <?php endif; ?>
         </hgroup>
         <nav role="navigation" class="site-navigation main-navigation">
-            <h1 class="assistive-text"><?php _e('Menu', 'aplos'); ?></h1>
-            <div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e('Skip to content', 'aplos'); ?>"><?php _e('Skip to content', 'aplos'); ?></a></div>
+            <h1 class="screen-reader-text"><?php _e('Menu', 'aplos'); ?></h1>
+            <div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e('Skip to content', 'aplos'); ?>"><?php _e('Skip to content', 'aplos'); ?></a></div>
             <button class="menu-toggle">&#9776;</button>
             <?php wp_nav_menu(array( 'theme_location' => 'primary' )); ?>
         </nav><!-- .site-navigation .main-navigation -->
