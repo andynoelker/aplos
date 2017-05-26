@@ -166,6 +166,17 @@ function aplos_get_defaults()
 }
 
 /**
+ * Add editor styling theme support
+ *
+ * @since Aplos 1.2.0
+ */
+function aplos_theme_editor_add_styles()
+{
+    add_editor_style();
+}
+add_action('admin_init', 'aplos_theme_editor_add_styles');
+
+/**
  * Add customization settings to Appearance menu
  *
  * @since Aplos 1.2.0
