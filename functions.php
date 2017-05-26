@@ -65,6 +65,13 @@ function aplos_setup()
     ));
 
     /**
+     * Enable support for a custom background
+     */
+    add_theme_support('custom-background', array(
+        'default-color' => '#232B2B',
+    ));
+
+    /**
      * This theme uses wp_nav_menu() in one location.
      */
     register_nav_menus(array(
