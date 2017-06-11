@@ -19,6 +19,8 @@
   * Button text color
   * Button border color
 * Added Right-to-Left language support
+* Added custom background image support
+* Added editor styles
 
 ### Changed
 * Changed main font to 'BebasNeue' which has wider character support
@@ -27,6 +29,9 @@
 * Changed way the theme internally manages default customizations
 * Changed way the theme internally manages column layout styles
 * Changed code to use PSR-2 formatting
+* Updated screen-reader classes
+* Screenshot is bigger and better
+* Update wordpress tags to more accurately reflect theme
 
 ### Fixed
 * Stopped showing comments on pages where the comments were disabled
